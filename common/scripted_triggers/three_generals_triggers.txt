@@ -1,0 +1,95 @@
+# ================= JEAN =================
+posture_jean_army = {
+	NOT = { any_country = { army_size > root.army_size } }
+}
+posture_jean_navy = {
+	NOT = { any_country = { navy_size > root.navy_size } }
+}
+posture_jean_defeat_gbr = {
+	has_variable = generals_defeated_gbr
+}
+posture_jean_top_power = {
+	country_rank >= rank_value:great_power
+	global_country_ranking = 1
+}
+posture_jean_path_met = {
+	posture_jean_army = yes
+	posture_jean_navy = yes
+	OR = {
+		posture_jean_defeat_gbr = yes
+		posture_jean_top_power = yes
+	}
+}
+
+# ================= BERTRAND =================
+posture_bertrand_bloc = {
+	power_bloc ?= { has_identity = identity:identity_sovereign_empire }
+}
+posture_bertrand_rivals = {
+	exists = c:GBR
+	exists = c:AUT
+	exists = c:TUR
+	has_diplomatic_pact = { who = c:GBR type = rivalry is_initiator = yes }
+	has_diplomatic_pact = { who = c:AUT type = rivalry is_initiator = yes }
+	has_diplomatic_pact = { who = c:TUR type = rivalry is_initiator = yes }
+}
+posture_bertrand_mercantilism = {
+	has_law = law_type:law_mercantilism
+}
+posture_bertrand_grain = {
+	# Stand-in for "largest grain producer"; tune this number.
+	market_capital.market = {
+		mg:grain = { market_goods_production >= 500 }
+	}
+}
+posture_bertrand_path_met = {
+	posture_bertrand_bloc = yes
+	posture_bertrand_rivals = yes
+	OR = {
+		posture_bertrand_mercantilism = yes
+		posture_bertrand_grain = yes
+	}
+}
+
+# ================= REILLE =================
+posture_reille_gdp = {
+	gdp_ranking <= 3
+}
+posture_reille_investment = {
+	any_country = {
+		NOT = { this = root }
+		root = {
+			has_treaty_foreign_investment_rights_with = { TARGET = prev }
+		}
+	}
+}
+posture_reille_trade_privileges = {
+	any_country = {
+		NOT = { this = root }
+		any_scope_treaty = {
+			binds = root
+			any_scope_article = {
+				has_type = trade_privilege
+			}
+		}
+	}
+}
+posture_reille_wide_investment = {
+	any_country = {
+		limit = {
+			NOT = { this = root }
+			root = {
+				has_treaty_foreign_investment_rights_with = { TARGET = prev }
+			}
+		}
+		count >= 2
+	}
+}
+posture_reille_path_met = {
+	posture_reille_gdp = yes
+	posture_reille_investment = yes
+	OR = {
+		posture_reille_trade_privileges = yes
+		posture_reille_wide_investment = yes
+	}
+}

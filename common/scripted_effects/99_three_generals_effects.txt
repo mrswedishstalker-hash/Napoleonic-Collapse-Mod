@@ -89,3 +89,15 @@ three_generals_victory_reille = {
 	}
 	set_heir = scope:three_generals_new_heir
 }
+three_generals_sync_bars_effect = {
+	# create the point variables if they don't exist yet (new games AND old saves)
+	if = { limit = { NOT = { has_variable = jean_points } } set_variable = { name = jean_points value = 0 } }
+	if = { limit = { NOT = { has_variable = bertrand_points } } set_variable = { name = bertrand_points value = 0 } }
+	if = { limit = { NOT = { has_variable = reille_points } } set_variable = { name = reille_points value = 0 } }
+
+	je:je_three_generals ?= {
+		set_bar_progress = { name = generals_jean_bar value = root.var:jean_points }
+		set_bar_progress = { name = generals_bertrand_bar value = root.var:bertrand_points }
+		set_bar_progress = { name = generals_reille_bar value = root.var:reille_points }
+	}
+}

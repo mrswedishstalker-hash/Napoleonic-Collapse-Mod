@@ -26,7 +26,11 @@ je_three_generals = {
 	scripted_progress_bar = generals_reille_bar
  
 	timeout = 3650 # ten years
- 
+	on_monthly_pulse = {
+	effect = {
+		three_generals_sync_bars_effect = yes
+	}
+}
 	complete = {
 		custom_tooltip = {
 			text = je_three_generals_complete_tt

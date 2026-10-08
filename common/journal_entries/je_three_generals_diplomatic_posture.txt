@@ -20,100 +20,51 @@ je_three_generals_diplomatic_posture = {
  
 	complete = {
 		OR = {
- 
-			# ------------------------------------------------------------
-			# Path 1: Jean's Military Economy
-			# ------------------------------------------------------------
+			# PATH 1: Jean
 			AND = {
-                custom_tooltip = {
-				text = je_jeans_economy_requirements_tt
- 
-				NOT = { any_country = { army_size > root.army_size } }
-				NOT = { any_country = { navy_size > root.navy_size } }
+				custom_tooltip = { text = posture_jean_army_tt posture_jean_army = yes }
+				custom_tooltip = { text = posture_jean_navy_tt posture_jean_navy = yes }
 				OR = {
-					has_variable = generals_defeated_gbr
-					AND = {
-						country_rank >= rank_value:great_power
-						global_country_ranking = 1
-					}
+					custom_tooltip = { text = posture_jean_gbr_tt posture_jean_defeat_gbr = yes }
+					custom_tooltip = { text = posture_jean_power_tt posture_jean_top_power = yes }
 				}
 			}
-            }
-			# ------------------------------------------------------------
-			# Path 2: Bertrand's Agrarian Economy
-			# ------------------------------------------------------------
+			# PATH 2: Bertrand
 			AND = {
-            custom_tooltip = {
-				text = je_bertrands_economy_requirements_tt
- 
-				power_bloc ?= { has_identity = identity:identity_sovereign_empire }
- 
-				# Rivalries (initiated by us) with GBR, AUT and TUR
-				exists = c:GBR
-				exists = c:AUT
-				exists = c:TUR
-				has_diplomatic_pact = { who = c:GBR type = rivalry is_initiator = yes }
-				has_diplomatic_pact = { who = c:AUT type = rivalry is_initiator = yes }
-				has_diplomatic_pact = { who = c:TUR type = rivalry is_initiator = yes }
- 
+				custom_tooltip = { text = posture_bertrand_bloc_tt posture_bertrand_bloc = yes }
+				custom_tooltip = { text = posture_bertrand_rivals_tt posture_bertrand_rivals = yes }
 				OR = {
-					has_law = law_type:law_mercantilism
-					# Grain stand-in for "largest grain producer".
-					# vanilla has no "highest producer" trigger; tune this number.
-					AND =
-                    market_capital.market = {
-						mg:grain = { market_goods_production >= 500 }
-					}
+					custom_tooltip = { text = posture_bertrand_merc_tt posture_bertrand_mercantilism = yes }
+					custom_tooltip = { text = posture_bertrand_grain_tt posture_bertrand_grain = yes }
 				}
 			}
-            }
-			# ------------------------------------------------------------
-			# Path 3: Reille's Liberal Economics
-			# ------------------------------------------------------------
+			# PATH 3: Reille
 			AND = {
-            custom_tooltip = {
-				text = je_reille_economy_requirements_tt
- 
-				gdp_ranking <= 3
- 
-				# We hold foreign investment rights in at least one country
-				any_country = {
-					NOT = { this = root }
-					root = {
-						has_treaty_foreign_investment_rights_with = { TARGET = prev }
-					}
-				}
- 
-				# ...and also hold trade privileges, or investment rights in 2+ countries
+				custom_tooltip = { text = posture_reille_gdp_tt posture_reille_gdp = yes }
+				custom_tooltip = { text = posture_reille_invest_tt posture_reille_investment = yes }
 				OR = {
-					any_country = {
-						NOT = { this = root }
-						root = {
-							any_scope_treaty = {
-								binds = prev.prev
-								any_scope_article = {
-									has_type = trade_privilege
-									source_country = prev.prev.prev
-								}
-							}
-						}
-					}
-					any_country = {
-						limit = {
-							NOT = { this = root }
-							root = {
-								has_treaty_foreign_investment_rights_with = { TARGET = prev }
-							}
-						}
-						count >= 2
-					}
+					custom_tooltip = { text = posture_reille_trade_tt posture_reille_trade_privileges = yes }
+					custom_tooltip = { text = posture_reille_wide_tt posture_reille_wide_investment = yes }
 				}
 			}
 		}
 	}
-}
+
 	on_complete = {
-		trigger_event = je_generals.2
+	if = {
+		limit = { posture_jean_path_met = yes }
+		change_variable = { name = jean_points add = 3 }
+		# any other Jean-only reward goes here, e.g. add_modifier
 	}
+	else_if = {
+		limit = { posture_bertrand_path_met = yes }
+		change_variable = { name = bertrand_points add = 33 }
+	}
+	else_if = {
+		limit = { posture_reille_path_met = yes }
+		change_variable = { name = reille_points add = 33 }
+	}
+	three_generals_sync_bars_effect = yes
+}
 }
  
