@@ -37,6 +37,6 @@ je_three_generals_diplomatic_posture = {
     }
 
     on_complete = {
-        trigger_event = generals.2
+        trigger_event = je_generals.2
     }
 }
