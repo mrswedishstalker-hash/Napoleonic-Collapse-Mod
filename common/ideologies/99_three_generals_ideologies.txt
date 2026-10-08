@@ -1,5 +1,5 @@
-# !! Most uncertain file. The vanilla ideology files weren't in your uploads, so the field layout
-# !! is from memory. Copy the structure of vanilla ideology_bonapartist and keep only these stances.
+# !!lskandasd
+# !! asdnkadliksnd
 # Stances: strongly_approve / approve / neutral / disapprove / strongly_disapprove
 
 ideology_napoleonic_stratocrat = {
