@@ -1,0 +1,7 @@
+﻿fra_1836_junta = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	country_legitimacy_headofstate_add = 20
+    country_authority_add = -100
+    country_law_enactment_speed_mult = 0.2
+    country_officers_pol_str_mult = 0.2
+}
