@@ -1,0 +1,79 @@
+# !! Most uncertain file. The vanilla ideology files weren't in your uploads, so the field layout
+# !! is from memory. Copy the structure of vanilla ideology_bonapartist and keep only these stances.
+# Stances: strongly_approve / approve / neutral / disapprove / strongly_disapprove
+
+ideology_napoleonic_stratocrat = {
+	icon = "gfx/interface/icons/ideology_icons/bonapartist.dds"   # TODO: check the icon path exists
+	character_ideology = yes
+
+	lawgroup_distribution_of_power = {
+		law_napoleonic_stratocracy = strongly_approve
+	}
+	lawgroup_governance_principles = {
+		law_presidential_republic = approve
+		law_parliamentary_republic = disapprove
+	}
+	lawgroup_army_model = {
+		law_mass_conscription = strongly_approve
+	}
+	# TODO: navy law group key (for law_professional_navy = approve)
+}
+
+ideology_napoleonic_absolutist = {
+	icon = "gfx/interface/icons/ideology_icons/bonapartist.dds"
+	character_ideology = yes
+
+	lawgroup_distribution_of_power = {
+		law_napoleonic_absolutism = strongly_approve
+	}
+	lawgroup_governance_principles = {
+		law_monarchy = approve
+		law_presidential_republic = disapprove
+	}
+	lawgroup_economic_system = {
+		law_agrarianism = strongly_approve
+		law_laissez_faire = disapprove
+	}
+	lawgroup_church_and_state = {
+		law_state_religion = approve
+	}
+	lawgroup_citizenship = {
+		law_subjecthood = approve
+		law_multicultural = disapprove
+	}
+	lawgroup_policing = {
+		law_local_police = approve
+	}
+	# TODO: land reform group key (law_tenant_farmers / law_serfdom = approve)
+}
+
+ideology_enlightened_technocrat = {
+	icon = "gfx/interface/icons/ideology_icons/bonapartist.dds"
+	character_ideology = yes
+
+	lawgroup_distribution_of_power = {
+		law_guided_technocracy = strongly_approve
+	}
+	lawgroup_governance_principles = {
+		law_advised_monarchy = strongly_approve
+	}
+	lawgroup_economic_system = {
+		law_laissez_faire = approve
+		law_interventionism = approve
+		law_agrarianism = disapprove
+	}
+	lawgroup_trade_policy = {
+		law_free_trade = approve
+	}
+	lawgroup_citizenship = {
+		law_multicultural = strongly_approve
+		law_cultural_exclusion = approve
+		law_subjecthood = disapprove
+	}
+	lawgroup_policing = {
+		law_national_guard = approve
+	}
+	# TODO: slavery group key (law_slavery_banned = strongly_approve)
+	# TODO: child labor group key (law_child_labor_allowed = strongly_disapprove)
+	# TODO: land reform group key (law_commercialized_agriculture = approve)
+}

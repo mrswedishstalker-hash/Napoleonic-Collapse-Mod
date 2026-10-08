@@ -1,0 +1,36 @@
+# Three generals: one bar per general. Scale = x100 of the original design (0.05 -> 5).
+# monthly_progress is a script value with root = the country that owns the JE (France).
+# The bar clamps itself between min_value and max_value, so penalties can't go below 0.
+
+generals_jean_bar = {
+	name = generals_jean_bar_name
+	desc = generals_jean_bar_desc
+	default = yes
+	start_value = 0
+	min_value = 0
+	max_value = 99
+	
+	
+}
+
+generals_bertrand_bar = {
+	name = generals_bertrand_bar_name
+	desc = generals_bertrand_bar_desc
+	default = yes
+	start_value = 0
+	min_value = 0
+	max_value = 99
+
+	
+}
+
+generals_reille_bar = {
+	name = generals_reille_bar_name
+	desc = generals_reille_bar_desc
+	default = yes
+	start_value = 0
+	min_value = 0
+	max_value = 99
+
+	
+}

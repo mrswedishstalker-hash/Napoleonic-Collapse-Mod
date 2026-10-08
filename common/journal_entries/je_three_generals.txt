@@ -1,0 +1,114 @@
+je_three_generals = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+ 
+	group = je_group_historical_content   # every vanilla JE has a group; without one it may not be listed
+ 
+	is_shown_when_inactive = {
+		exists = c:FRA
+		c:FRA ?= THIS
+		NOT = { has_variable = three_generals_resolved }
+	}
+	possible = {
+		exists = c:FRA
+		c:FRA ?= THIS
+		NOT = { has_variable = three_generals_resolved }
+	}
+ 
+	immediate = {
+		remove_variable ?= generals_defeated_gbr
+		three_generals_setup = yes   # spawns missing generals, makes all three immortal, saves scopes
+		trigger_event = je_generals.1
+	}
+
+	on_activate = {
+		trigger_event = je_generals.1
+	}
+	scripted_progress_bar = generals_jean_bar
+	scripted_progress_bar = generals_bertrand_bar
+	scripted_progress_bar = generals_reille_bar
+ 
+	timeout = 3650 # ten years
+ 
+	complete = {
+		custom_tooltip = {
+			text = je_three_generals_complete_tt
+			scope:journal_entry = {
+				OR = {
+					"scripted_bar_progress(generals_jean_bar)" >= 99
+					"scripted_bar_progress(generals_bertrand_bar)" >= 99
+					"scripted_bar_progress(generals_reille_bar)" >= 99
+				}
+			}
+		}
+	}
+ 
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_three_generals_status_jean
+				trigger = {
+					scope:journal_entry = {
+						"scripted_bar_progress(generals_jean_bar)" > "scripted_bar_progress(generals_bertrand_bar)"
+						"scripted_bar_progress(generals_jean_bar)" > "scripted_bar_progress(generals_reille_bar)"
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_three_generals_status_bertrand
+				trigger = {
+					scope:journal_entry = {
+						"scripted_bar_progress(generals_bertrand_bar)" > "scripted_bar_progress(generals_jean_bar)"
+						"scripted_bar_progress(generals_bertrand_bar)" > "scripted_bar_progress(generals_reille_bar)"
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_three_generals_status_reille
+				trigger = {
+					scope:journal_entry = {
+						"scripted_bar_progress(generals_reille_bar)" > "scripted_bar_progress(generals_jean_bar)"
+						"scripted_bar_progress(generals_reille_bar)" > "scripted_bar_progress(generals_bertrand_bar)"
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_three_generals_status_none
+				trigger = { always = yes }
+			}
+		}
+	}
+ 
+	on_complete = {
+		set_variable = three_generals_resolved
+		# Ties resolve in this order: Jean, Bertrand, Reille
+		if = {
+			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_jean_bar)" >= 500 } }
+			three_generals_victory_jean = yes
+		}
+		else_if = {
+			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_bertrand_bar)" >= 500 } }
+			three_generals_victory_bertrand = yes
+		}
+		else_if = {
+			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_reille_bar)" >= 500 } }
+			three_generals_victory_reille = yes
+		}
+		else = {
+
+		}
+		three_generals_release_immortality = yes
+		remove_variable ?= generals_defeated_gbr
+	}
+ 
+	on_timeout = {
+		hidden_effect={
+		set_variable = three_generals_resolved
+		hidden_effect = three_generals_release_immortality = yes
+		remove_variable ?= generals_defeated_gbr 
+		}
+		# TODO: nobody won. Optional consolation reward for the highest bar.
+	}
+ 
+	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

@@ -1,0 +1,91 @@
+# Root scope for all of these = France (country).
+
+three_generals_setup = {
+	# Spawn any general that doesn't exist yet (safe if your history file already creates them)
+	if = { limit = { NOT = { is_template_used = FRA_jean-de-dieu_soult } } create_character = { template = FRA_jean-de-dieu_soult } }
+	if = { limit = { NOT = { is_template_used = FRA_bertrand_clauzel } } create_character = { template = FRA_bertrand_clauzel } }
+	if = { limit = { NOT = { is_template_used = FRA_honore-charles_reille } } create_character = { template = FRA_honore-charles_reille } }
+
+	random_scope_character = {
+		limit = { has_template = FRA_jean-de-dieu_soult }
+		save_scope_as = general_jean
+		set_character_immortal = yes
+		set_as_interest_group_leader = yes
+		set_ideology = ideology:ideology_napoleonic_stratocrat
+	}
+	random_scope_character = {
+		limit = { has_template = FRA_bertrand_clauzel }
+		save_scope_as = general_bertrand
+		set_character_immortal = yes
+		set_as_interest_group_leader = yes
+		set_ideology = ideology:ideology_napoleonic_absolutist
+	}
+	random_scope_character = {
+		limit = { has_template = FRA_honore-charles_reille }
+		save_scope_as = general_reille
+		set_character_immortal = yes
+		set_as_interest_group_leader = yes
+		set_ideology = ideology:ideology_enlightened_technocrat
+	}
+}
+
+three_generals_release_immortality = {
+	scope:general_jean ?= { set_character_immortal = no }
+	scope:general_bertrand ?= { set_character_immortal = no }
+	scope:general_reille ?= { set_character_immortal = no }
+}
+
+# ---------- JEAN: Napoleonic Stratocracy (no monarchy, no heir) ----------
+three_generals_victory_jean = {
+	set_variable = three_generals_winner_jean
+	set_variable = { name = three_generals_winner_char value = scope:general_jean }
+	# Stratocracy requires presidential republic or social monarchy
+	if = {
+		limit = {
+			NOR = {
+				has_law = law_type:law_presidential_republic
+				has_law = law_type:law_social_monarchy
+			}
+		}
+		activate_law = law_type:law_presidential_republic
+	}
+	activate_law = law_type:law_napoleonic_stratocracy
+}
+
+# ---------- BERTRAND: Monarchy + Napoleonic Absolutism, becomes monarch, landowner heir ----------
+three_generals_victory_bertrand = {
+	set_variable = three_generals_winner_bertrand
+	set_variable = { name = three_generals_winner_char value = scope:general_bertrand }
+	activate_law = law_type:law_monarchy
+	activate_law = law_type:law_napoleonic_absolutism
+	# Bertrand takes the throne (after the monarchy law is in place)
+	scope:general_bertrand = { set_character_as_ruler = yes }
+	create_character = {
+		culture = primary_culture
+		interest_group = ig_landowners
+		ideology = ideology_napoleonic_absolutist
+		heir = yes
+		age = 20
+		save_scope_as = three_generals_new_heir
+	}
+	set_heir = scope:three_generals_new_heir
+}
+
+# ---------- REILLE: Advised Monarchy + Guided Technocracy, becomes monarch, intelligentsia heir ----------
+three_generals_victory_reille = {
+	set_variable = three_generals_winner_reille
+	set_variable = { name = three_generals_winner_char value = scope:general_reille }
+	activate_law = law_type:law_advised_monarchy
+	activate_law = law_type:law_guided_technocracy
+	# Reille takes the throne (after the monarchy law is in place)
+	scope:general_reille = { set_character_as_ruler = yes }
+	create_character = {
+		culture = primary_culture
+		interest_group = ig_intelligentsia
+		ideology = ideology_enlightened_technocrat
+		heir = yes
+		age = 20
+		save_scope_as = three_generals_new_heir
+	}
+	set_heir = scope:three_generals_new_heir
+}

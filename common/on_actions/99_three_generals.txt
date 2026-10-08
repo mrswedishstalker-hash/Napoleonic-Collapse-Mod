@@ -1,0 +1,64 @@
+# 1) Jean's JE3 flag. See the caveat: the scope of this hook isn't documented.
+on_enemy_capitulated_notification = {
+	effect = {
+		if = {
+			limit = {
+				c:FRA ?= this
+				has_journal_entry = je_three_generals
+				exists = c:GBR
+				has_war_with = c:GBR
+			}
+			debug_log = "three_generals: enemy capitulated while FRA at war with GBR"
+			set_variable = generals_defeated_gbr
+		}
+	}
+}
+
+# 2) Keep heirs in the right interest group, and give the winner's IG its ideology
+#    once the winning general has died. (Runs alongside your existing monthly on_action.)
+on_monthly_pulse_country = {
+	effect = {
+		if = {
+			limit = {
+				c:FRA ?= this
+				has_law = law_type:law_napoleonic_absolutism
+				exists = heir
+				heir = { NOT = { is_interest_group_type = ig_landowners } }
+			}
+			heir = { set_interest_group = ig:ig_landowners }
+		}
+		if = {
+			limit = {
+				c:FRA ?= this
+				has_law = law_type:law_advised_monarchy
+				exists = heir
+				heir = { NOT = { is_interest_group_type = ig_intelligentsia } }
+			}
+			heir = { set_interest_group = ig:ig_intelligentsia }
+		}
+
+		# Winner has died: the winning general's IG gains his ideology (once)
+		if = {
+			limit = {
+				c:FRA ?= this
+				has_variable = three_generals_resolved
+				has_variable = three_generals_winner_char
+				NOT = { has_variable = three_generals_ideology_done }
+				NOT = { exists = var:three_generals_winner_char }
+			}
+			if = {
+				limit = { has_variable = three_generals_winner_jean }
+				ig:ig_armed_forces ?= { add_ideology = ideology_napoleonic_stratocrat }
+			}
+			else_if = {
+				limit = { has_variable = three_generals_winner_bertrand }
+				ig:ig_landowners ?= { add_ideology = ideology_napoleonic_absolutist }
+			}
+			else_if = {
+				limit = { has_variable = three_generals_winner_reille }
+				ig:ig_intelligentsia ?= { add_ideology = ideology_enlightened_technocrat }
+			}
+			set_variable = three_generals_ideology_done
+		}
+	}
+}

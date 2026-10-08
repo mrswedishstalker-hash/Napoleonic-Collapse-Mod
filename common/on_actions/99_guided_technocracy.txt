@@ -1,0 +1,12 @@
+on_monthly_pulse_country = {
+	effect = {
+		if = {
+			limit = {
+				has_law = law_type:law_guided_technocracy
+				exists = heir
+				heir = { NOT = { is_interest_group_type = ig_intelligentsia } }
+			}
+			heir = { set_interest_group = ig:ig_intelligentsia }
+		}
+	}
+}

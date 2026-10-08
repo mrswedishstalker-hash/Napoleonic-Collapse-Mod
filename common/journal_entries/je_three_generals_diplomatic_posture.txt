@@ -1,0 +1,42 @@
+je_three_generals_diplomatic_posture = {
+    icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+    group = je_group_historical_content   
+
+    is_shown_when_inactive = {
+        exists = c:FRA
+        c:FRA ?= THIS
+        NOT = { has_variable = three_generals_resolved }
+        has_variable = three_generals_startup
+    }
+
+    possible = {
+        exists = c:FRA
+        c:FRA ?= THIS
+        NOT = { has_variable = three_generals_resolved }
+        has_variable = three_generals_startup 
+    }
+
+    timeout = 3650
+
+    # FIXED: Uses simplified flag checks so the UI can draw checkboxes without crashing
+    complete_trigger = {
+        OR = {
+            custom_description = {
+                text = "Path 1: Jean's Military Economy\n- Achieve #1 Army & Navy.\n- Defeat GBR OR reach rank 1 Great Power."
+                has_country_flag = flag_jean_path_ready
+            }
+            custom_description = {
+                text = "Path 2: Bertrand's Agrarian Economy\n- Join Sovereign Bloc.\n- Rival GBR, AUT, and TUR."
+                has_country_flag = flag_bertrand_path_ready
+            }
+            custom_description = {
+                text = "Path 3: Reille's Liberal Economics\n- Maintain Top 3 GDP.\n- Get foreign Investment rights."
+                has_country_flag = flag_reille_path_ready
+            }
+        }
+    }
+
+    on_complete = {
+        trigger_event = generals.2
+    }
+}
