@@ -37,7 +37,12 @@
 		activate_law = law_type:law_combination_acts # Legacy of the Napoleonic Code and 1791 Le Chapelier Law
 		activate_law = law_type:law_colonial_slavery # Slavery in French colonies was only abolished in 1848
 
-	
+		active_law:lawgroup_distribution_of_power ?= { # Autocracy
+			add_amendment = {
+				type = amendment_marshall_regency
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}	
 	
 		set_institution_investment_level = {
 			institution = institution_schools
@@ -58,9 +63,10 @@
 			add_ruling_interest_group = yes
 		}
 
-		
+		add_modifier = {
+			name = fra_1836_junta
+		}
 
-		
 		add_company = company_type:company_dmc
 		company:company_dmc = {
 			set_company_establishment_date = 1746.1.1

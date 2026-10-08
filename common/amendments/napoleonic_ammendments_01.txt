@@ -1,0 +1,28 @@
+﻿amendment_marshall_regency = {
+
+	parent = law_autocracy
+
+	allowed_laws = {
+		law_autocracy
+	}
+
+	modifier = {
+		interest_group_ig_armed_forces_pol_str_mult = 0.25
+	}
+
+	possible = {
+		c:FRA ?= this
+		has_law = law_type:law_autocracy
+	}
+
+	would_sponsor = {
+		always = no
+	}
+
+	can_repeal = {
+		legitimacy >= legitimacy_to_repeal_amendment
+		NAND = {
+			has_law = law_type:law_autocracy
+		}
+	}
+}
