@@ -50,7 +50,7 @@ je_generals.2 = {
         name = "je_generals.2.a" # "Jean's strategy carries the day!"
         
         # Validates that the conditions for the Military Path were achieved
-        limit = {
+        trigger = {
             NOT = { any_country = { army_size > root.army_size } }
             NOT = { any_country = { navy_size > root.navy_size } }
             OR = {
@@ -80,7 +80,7 @@ je_generals.2 = {
         name = "je_generals.2.b" # "Bertrand's grand strategy secures our position."
         
         # Validates that the conditions for the Geopolitical Path were achieved
-        limit = {
+        trigger = {
             has_power_bloc = yes
             power_bloc = { is_power_bloc_type = pb_type_sovereign_empire }
             has_rivalry = c:GBR
@@ -115,7 +115,7 @@ je_generals.2 = {
         name = "je_generals.2.c" # "Reille's economic mastery takes hold."
         
         # Validates that the conditions for the Economic Path were achieved
-        limit = {
+        trigger = {
             NOT = {
                 count_countries = {
                     limit = { gdp > root.gdp }

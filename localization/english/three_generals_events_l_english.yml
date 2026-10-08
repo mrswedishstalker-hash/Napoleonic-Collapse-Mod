@@ -1,0 +1,11 @@
+﻿l_english:
+ je_generals.1.t:0 "The Marshals' Rivalry"
+ je_generals.1.d:0 "Three veterans of the Empire, Soult, Clauzel and Reille, each believe they know the path France must take. The court watches to see whose vision will prevail."
+ je_generals.1.f:0 "Old comrades have become rivals."
+ je_generals.1.a:0 "Let them make their case."
+ je_generals.2.t:0 "A Marshal Carries the Day"
+ je_generals.2.d:0 "Our diplomatic course has settled. One of the three generals has convinced the court that his approach to foreign affairs is the right one."
+ je_generals.2.f:0 "France's foreign policy now has a clear author."
+ je_generals.2.a:0 "Soult's strategy carries the day!"
+ je_generals.2.b:0 "Clauzel's grand strategy secures our position."
+ je_generals.2.c:0 "Reille's economic mastery takes hold."

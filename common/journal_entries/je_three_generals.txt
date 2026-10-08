@@ -20,9 +20,6 @@ je_three_generals = {
 		trigger_event = je_generals.1
 	}
 
-	on_activate = {
-		trigger_event = je_generals.1
-	}
 	scripted_progress_bar = generals_jean_bar
 	scripted_progress_bar = generals_bertrand_bar
 	scripted_progress_bar = generals_reille_bar

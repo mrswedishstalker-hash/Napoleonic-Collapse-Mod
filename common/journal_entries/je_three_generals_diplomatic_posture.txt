@@ -17,7 +17,11 @@ je_three_generals_diplomatic_posture = {
     }
 
     timeout = 3650
-    on_monthly_pulse = { root = { check_three_generals_progress_effect = yes } }
+    on_monthly_pulse = {
+        effect = {
+            check_three_generals_progress_effect = yes
+        }
+    }
     # FIXED: Uses simplified flag checks so the UI can draw checkboxes without crashing
     complete = {
         OR = {
