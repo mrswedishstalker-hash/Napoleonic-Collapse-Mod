@@ -1,0 +1,78 @@
+je_three_generals_economy = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+	group = je_group_historical_content
+ 
+	is_shown_when_inactive = {
+		exists = c:FRA
+		c:FRA ?= THIS
+		NOT = { has_variable = three_generals_resolved }
+		has_variable = three_generals_startup
+	}
+ 
+	possible = {
+		exists = c:FRA
+		c:FRA ?= THIS
+		NOT = { has_variable = three_generals_resolved }
+		has_variable = three_generals_startup
+	}
+    immediate = {
+	set_variable = { name = jg_shipyards_built value = 0 }
+}
+	timeout = 3650
+ on_monthly_pulse = {
+	effect = {
+		set_variable = { name = agri_share value = agriculture_economy_share }
+	}
+}
+	complete = {
+		OR = {
+			# PATH 1: Jean
+			AND = {
+				custom_tooltip = { text = economy_jean_army_tt economy_jean_army = yes }
+				custom_tooltip = { text = economy_jean_market_tt economy_jean_market = yes }
+				OR = {
+					custom_tooltip = { text = economy_jean_barrack_tt economy_jean_barrack = yes }
+					custom_tooltip = { text = economy_jean_shipyard_tt economy_jean_shipyard = yes }
+				}
+			}
+			# PATH 2: Bertrand
+			AND = {
+				custom_tooltip = { text = economy_bertrand_agrarianism_tt economy_bertrand_agrarianism = yes }
+				custom_tooltip = { text = economy_bertrand_rural_folk_tt economy_bertrand_rural_folk = yes }
+				OR = {
+					custom_tooltip = { text = economy_bertrand_agriculture_tt economy_bertrand_agriculture = yes }
+					custom_tooltip = { text = economy_bertrand_landowners_clout_tt economy_bertrand_landowners_clout = yes }
+                    custom_tooltip = { text = economy_bertrand_serf_tt economy_bertrand_serf = yes }
+				}
+			}
+			# PATH 3: Reille
+			AND = {
+				custom_tooltip = { text = economy_reille_libecon_tt economy_reille_libecon = yes }
+				custom_tooltip = { text = economy_reille_university_tt economy_reille_university = yes }
+				OR = {
+					custom_tooltip = { text = economy_reille_freetrade_tt economy_reille_freetrade = yes }
+					custom_tooltip = { text = economy_reille_pb_tt economy_reille_pb = yes }
+                    custom_tooltip = { text = economy_reille_gdp_tt economy_reille_gdp = yes }
+				}
+			}
+		}
+	}
+
+	on_complete = {
+	if = {
+		limit = { economy_jean_path_met = yes }
+		change_variable = { name = jean_points add = 3 }
+		# any other Jean-only reward goes here, e.g. add_modifier
+	}
+	else_if = {
+		limit = { economy_bertrand_path_met = yes }
+		change_variable = { name = bertrand_points add = 33 }
+	}
+	else_if = {
+		limit = { economy_reille_path_met = yes }
+		change_variable = { name = reille_points add = 33 }
+	}
+	three_generals_sync_bars_effect = yes
+}
+}
+ 

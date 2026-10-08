@@ -1,0 +1,70 @@
+je_three_generals_domestic = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+	group = je_group_historical_content
+ 
+	is_shown_when_inactive = {
+		exists = c:FRA
+		c:FRA ?= THIS
+		NOT = { has_variable = three_generals_resolved }
+		has_variable = three_generals_startup
+	}
+ 
+	possible = {
+		exists = c:FRA
+		c:FRA ?= THIS
+		NOT = { has_variable = three_generals_resolved }
+		has_variable = three_generals_startup
+	}
+ 
+	timeout = 3650
+ 
+	complete = {
+		OR = {
+			# PATH 1: Jean
+			AND = {
+				custom_tooltip = { text = domestic_jean_army_tt domestic_jean_army = yes }
+				custom_tooltip = { text = domestic_jean_navy_tt domestic_jean_navy = yes }
+				OR = {
+					custom_tooltip = { text = domestic_jean_secret_police_tt domestic_jean_secret_police = yes }
+					custom_tooltip = { text = domestic_jean_clout_20_tt domestic_jean_clout_20 = yes }
+				}
+			}
+			# PATH 2: Bertrand
+			AND = {
+				custom_tooltip = { text = domestic_local_police_tt domestic_bertrand_local_police = yes }
+				custom_tooltip = { text = domestic_bertrand_state_religion_tt domestic_bertrand_state_religion = yes }
+				OR = {
+					custom_tooltip = { text = domestic_bertrand_guild_system_tt domestic_bertrand_guild_system = yes }
+					custom_tooltip = { text = domestic_bertrand_legal_guardianship_tt domestic_bertrand_legal_guardianship = yes }
+				}
+			}
+			# PATH 3: Reille
+			AND = {
+				custom_tooltip = { text = domestic_reille_secular_tt domestic_reille_secular = yes }
+				custom_tooltip = { text = domestic_reille_unions_tt domestic_reille_unions = yes }
+				OR = {
+					custom_tooltip = { text = domestic_reille_healthcare_tt domestic_reille_healthcare = yes }
+					custom_tooltip = { text = domestic_reille_woke_tt domestic_reille_woke = yes }
+				}
+			}
+		}
+	}
+
+	on_complete = {
+	if = {
+		limit = { domestic_jean_path_met = yes }
+		change_variable = { name = jean_points add = 3 }
+		# any other Jean-only reward goes here, e.g. add_modifier
+	}
+	else_if = {
+		limit = { domestic_bertrand_path_met = yes }
+		change_variable = { name = bertrand_points add = 33 }
+	}
+	else_if = {
+		limit = { domestic_reille_path_met = yes }
+		change_variable = { name = reille_points add = 33 }
+	}
+	three_generals_sync_bars_effect = yes
+}
+}
+ 

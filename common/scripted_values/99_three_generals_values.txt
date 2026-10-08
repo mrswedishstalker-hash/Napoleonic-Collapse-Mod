@@ -1,0 +1,22 @@
+agriculture_levels_total = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_group = bg_agriculture }
+		add = this.level
+	}
+}
+
+all_building_levels_total = {
+	value = 0
+	every_scope_building = {
+		add = this.level
+	}
+}
+
+agriculture_economy_share = {
+	value = agriculture_levels_total
+	divide = {
+		value = all_building_levels_total
+		min = 1
+	}
+}

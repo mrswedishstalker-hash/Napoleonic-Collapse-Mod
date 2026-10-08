@@ -20,7 +20,60 @@ posture_jean_path_met = {
 		posture_jean_top_power = yes
 	}
 }
-
+domestic_jean_army = {
+	has_law = law_professional_army
+}
+domestic_jean_navy = {
+	has_law = law_professional_navy
+}
+domestic_jean_secret_police = {
+	has_law = law_secret_police 
+}
+domestic_jean_clout_20 = {
+	ig:ig_armed_forces ?= { ig_clout >= 0.2 }
+}
+domestic_jean_path_met = {
+	domestic_jean_army = yes
+	domestic_jean_navy = yes
+	OR = {
+		domestic_jean_secret_police = yes
+		domestic_jean_clout_20 = yes
+	}
+}
+economy_jean_barrack = {
+	any_scope_state = {
+		filter = { is_incorporated = yes }
+		has_building = building_barrack
+		percent = 1
+	}
+}
+economy_jean_market = {
+	NOT = {
+	any_scope_state = {
+		filter = { is_incorporated = yes }
+		state_infrastructure_balance < 0 	
+	}
+	}
+}
+economy_jean_army = {
+	NOT = {
+		any_scope_building = {
+			is_building_type = building_barrack
+			building_has_goods_shortage = yes
+		}
+	}
+}
+economy_jean_shipyard = {
+	var:jg_shipyards_built >= 10
+}
+economy_jean_path_met = {
+	economy_jean_army = yes 
+	economy_jean_market = yes 
+	OR = {
+		economy_jean_barrack = yes 
+		economy_jean_shipyard = yes
+	}
+}
 # ================= BERTRAND =================
 posture_bertrand_bloc = {
 	power_bloc ?= { has_identity = identity:identity_sovereign_empire }
@@ -50,16 +103,61 @@ posture_bertrand_path_met = {
 		posture_bertrand_grain = yes
 	}
 }
-
+domestic_bertrand_local_police = {
+	has_law = law_local_police
+}
+domestic_bertrand_state_religion = {
+	has_law = law_state_religion
+}
+domestic_bertrand_guild_system = {
+	has_law = law_guild_system
+}
+domestic_bertrand_legal_guardianship = {
+	has_law = law_no_womens_rights
+}
+domestic_bertrand_path_met = {
+	domestic_bertrand_local_police = yes 
+	domestic_bertrand_state_religion = yes
+	OR = {
+		domestic_bertrand_guild_system = yes
+		domestic_bertrand_legal_guardianship = yes
+	}
+}
+economy_bertrand_agrarianism = {
+	has_law = law_agrarianism 
+}
+economy_bertrand_rural_folk = {
+	ig:ig_rural_folk = ig_clout <5
+}
+economy_bertrand_agriculture = {
+	var:agri_share >= 0.3
+}
+economy_bertrand_serf = {
+	has_law = law_serfdom 
+}
+economy_bertrand_landowners_clout = {
+	ig:ig_landowners = ig_clout >39
+}
+economy_bertrand_path_met = {
+	economy_bertrand_agrarianism = yes 
+	economy_bertrand_rural_folk = yes 
+	OR = {
+		economy_bertrand_agriculture = yes
+		economy_bertrand_serf = yes 
+		economy_bertrand_landowners_clout = yes
+	}
+}
 # ================= REILLE =================
 posture_reille_gdp = {
 	gdp_ranking <= 3
 }
-posture_reille_investment = {
+posture_reille_wide_investment = {
 	any_country = {
+		count >= 2
 		NOT = { this = root }
+		save_temporary_scope_as = posture_investment_target
 		root = {
-			has_treaty_foreign_investment_rights_with = { TARGET = prev }
+			has_treaty_foreign_investment_rights_with = { TARGET = scope:posture_investment_target }
 		}
 	}
 }
@@ -76,13 +174,11 @@ posture_reille_trade_privileges = {
 }
 posture_reille_wide_investment = {
 	any_country = {
-		limit = {
-			NOT = { this = root }
-			root = {
-				has_treaty_foreign_investment_rights_with = { TARGET = prev }
-			}
-		}
 		count >= 2
+		NOT = { this = root }
+		root = {
+			has_treaty_foreign_investment_rights_with = { TARGET = prev }
+		}
 	}
 }
 posture_reille_path_met = {
@@ -91,5 +187,60 @@ posture_reille_path_met = {
 	OR = {
 		posture_reille_trade_privileges = yes
 		posture_reille_wide_investment = yes
+	}
+}
+domestic_reille_secular = {
+	has_law = law_total_separation
+}
+domestic_reille_unions = {
+	OR = {
+		has_law = law_anti_strike_laws
+		has_law = law_right_to_associate
+	}
+}
+domestic_reille_healthcare = {
+	has_law = public_health_insurance
+}
+domestic_reille_woke = {
+	OR = {
+		has_law = law_cultural_exclusion
+		has_law = law_multiculturalo
+	}
+}
+domestic_reille_path_met = {
+	domestic_reille_secular = yes 
+	domestic_reille_unions = yes 
+	OR = {
+		domestic_reille_healthcare = yes 
+		domestic_reille_woke = yes
+	}
+}
+economy_reille_libecon = {
+	has_law = law_laissez_faire
+}
+economy_reille_university = {
+	any_scope_state = {
+		has_building = building_university 
+		percent = >9 
+	}
+}
+economy_reille_freetrade = {
+	has_law = law_free_trade
+}
+economy_reille_pb = {
+	power_bloc ?= { has_identity = identity:identity_trade_league }
+}
+economy_reille_gdp = {
+	NOT = {
+		c:GBR = gdp_ranking > c:FRA = gdp_ranking
+	}
+}
+economy_reille_path_met = {
+	economy_reille_libecon = yes 
+	economy_reille_university = yes 
+	OR = {
+		economy_reille_freetrade = yes
+		economy_reille_pb = yes
+		economy_reille_gdp = yes
 	}
 }

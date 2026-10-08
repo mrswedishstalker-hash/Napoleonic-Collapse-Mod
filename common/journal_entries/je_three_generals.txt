@@ -15,10 +15,10 @@ je_three_generals = {
 	}
  
 	immediate = {
+		set_variable = three_generals_startup   # set first so a later error cannot block the second JE
 		remove_variable ?= generals_defeated_gbr
 		three_generals_setup = yes   # spawns missing generals, makes all three immortal, saves scopes
 		trigger_event = je_generals.1
-		set_variable = three_generals_startup
 	}
 
 	scripted_progress_bar = generals_jean_bar

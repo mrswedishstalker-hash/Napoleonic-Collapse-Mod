@@ -1,0 +1,13 @@
+on_building_built = {
+	effect = {
+		if = {
+			limit = {
+				is_building_type = building_shipyard
+				owner ?= { has_journal_entry = je_three_generals_diplomatic_posture }
+			}
+			owner = {
+				change_variable = { name = jg_shipyards_built add = 1 }
+			}
+		}
+	}
+}
