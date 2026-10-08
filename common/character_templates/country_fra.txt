@@ -33,7 +33,7 @@ FRA_ferdinand_philippe = {
 	last_name = d_Orleans
 	historical = yes
 	culture = primary_culture
-	role = heir
+
 	birth_date = 1810.9.3
 	interest_group = ig_armed_forces
 	ideology = ideology_orleanist

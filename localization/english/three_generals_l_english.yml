@@ -12,8 +12,6 @@
  generals_bertrand_bar_desc:0 "Clauzel"
  generals_reille_bar_name:0 "#bold Reille, the Intelligentsia#!\nFill the bar to 1000 within ten years. Each month adds:\n+5  Multiculturalism is enacted (+2 for Cultural Exclusion instead)\n+2  Laissez-Faire is enacted (+1 for Interventionism instead)\n+1  Free Trade is enacted\n+3  Commercialized Agriculture is enacted\n+2  National Guard is enacted\n+2  Child Labor is not allowed\n+3  Slavery is banned\n-10  The Intelligentsia are marginalized\n\n#bold Reward:#! Advised Monarchy and Guided Technocracy. Reille becomes monarch, with an intelligentsia heir."
  generals_reille_bar_desc:0 "Reille"
- je_jeans_economy_requirements_tt:0 "#H Path 1: Jean's Military Economy#!\n- Achieve 1 Army & Navy.\n- Defeat GBR OR reach rank nº1 Great Power."
- je_bertrands_economy_requirements_tt:0 "#H Path 2: Bertrand's Agrarian Economy#!\n- Join Sovereign Power Bloc.\n- Rival GBR, AUT, and TUR."
- je_reille_economy_requirements_tt:0 "#H Path 3: Reille's Liberal Economics#!\n- Top 3 GDP.\n- Get foreign Investment rights."
+ 
 
 

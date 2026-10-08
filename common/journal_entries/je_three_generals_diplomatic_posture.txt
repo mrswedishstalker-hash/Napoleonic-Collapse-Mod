@@ -17,20 +17,20 @@ je_three_generals_diplomatic_posture = {
     }
 
     timeout = 3650
-
+    on_monthly_pulse = { root = { check_three_generals_progress_effect = yes } }
     # FIXED: Uses simplified flag checks so the UI can draw checkboxes without crashing
-    complete_trigger = {
+    complete = {
         OR = {
             custom_description = {
-                text = "Path 1: Jean's Military Economy\n- Achieve #1 Army & Navy.\n- Defeat GBR OR reach rank 1 Great Power."
+                text = je_jeans_economy_requirements_tt
                 has_country_flag = flag_jean_path_ready
             }
             custom_description = {
-                text = "Path 2: Bertrand's Agrarian Economy\n- Join Sovereign Bloc.\n- Rival GBR, AUT, and TUR."
+                text = je_bertrands_economy_requirements_tt
                 has_country_flag = flag_bertrand_path_ready
             }
             custom_description = {
-                text = "Path 3: Reille's Liberal Economics\n- Maintain Top 3 GDP.\n- Get foreign Investment rights."
+                text = je_reille_economy_requirements_tt
                 has_country_flag = flag_reille_path_ready
             }
         }

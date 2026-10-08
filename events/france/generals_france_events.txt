@@ -1,4 +1,4 @@
-namespace = generals
+namespace = je_generals
 
 #startup event 
 je_generals.1 = {
