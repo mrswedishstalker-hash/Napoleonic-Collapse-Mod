@@ -79,15 +79,15 @@ je_three_generals = {
 		set_variable = three_generals_resolved
 		# Ties resolve in this order: Jean, Bertrand, Reille
 		if = {
-			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_jean_bar)" >= 500 } }
+			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_jean_bar)" >= 99 } }
 			three_generals_victory_jean = yes
 		}
 		else_if = {
-			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_bertrand_bar)" >= 500 } }
+			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_bertrand_bar)" >= 99 } }
 			three_generals_victory_bertrand = yes
 		}
 		else_if = {
-			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_reille_bar)" >= 500 } }
+			limit = { je:je_three_generals ?= { "scripted_bar_progress(generals_reille_bar)" >= 99 } }
 			three_generals_victory_reille = yes
 		}
 		else = {

@@ -20,9 +20,7 @@ je_generals.1 = {
 		 # triggered by je_three_generals
 		 NOT = { has_variable = three_generals_startup }
 	}
- immediate = {
-    set_variable = three_generals_startup
- }
+
  option = { 
     name = "je_generals.1.a"
     set_variable = three_generals_startup

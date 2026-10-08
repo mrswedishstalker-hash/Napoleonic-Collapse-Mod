@@ -147,7 +147,7 @@ FRA_jean-de-dieu_soult = {
 	role = character_role_ruler
 	ig_leader = yes
 	interest_group = ig_armed_forces
-	ideology = ideology_moderate
+	ideology = ideology_napoleonic_stratocrat
 	home_region = STATE_LANGUEDOC
 	on_created = {
 		set_variable = {
@@ -227,7 +227,7 @@ FRA_bertrand_clauzel = {
 	birth_date = 1772.12.12
 	interest_group = ig_landowners
 	ig_leader = yes
-	ideology = ideology_traditionalist
+	ideology = ideology_napoleonic_absolutist
 	home_region = STATE_AQUITAINE
 	traits = {
 		basic_offensive_planner
@@ -280,7 +280,7 @@ FRA_honore-charles_reille = {
 	birth_date = 1775.9.1
 	interest_group = ig_intelligentsia
 	ig_leader = yes
-	ideology = ideology_moderate
+	ideology = ideology_enlightened_technocrat
 	home_region = STATE_PROVENCE
 	traits = {
 		brave
