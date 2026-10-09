@@ -1,0 +1,74 @@
+﻿BUILDINGS = {
+    s:STATE_KLAIPEDA={
+		region_state:LIT={
+			create_building={
+				building="building_rye_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:LIT"
+						levels=2
+						region="STATE_KLAIPEDA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_potatoes" "pm_tools_disabled"  }
+			}
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:LIT"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					country={
+						country="c:LIT"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+			create_building={
+				building="building_shipyard"
+				add_ownership={
+					country={
+						country="c:PRU"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_basic_shipbuilding"  }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					country={
+						country="c:FRA"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_saw_mills" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts"  }
+			}
+			create_building={
+				building="building_fishing_wharf"
+				add_ownership={
+					country={
+						country="c:LIT"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated"  }
+			}
+        }
+	}
+}

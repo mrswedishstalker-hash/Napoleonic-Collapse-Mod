@@ -1,6 +1,6 @@
 ﻿POPS = {
 	s:STATE_VILNIUS = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = { # Most Lithuanian aristocrats identified as Polish
 				culture = polish
 				pop_type = aristocrats
@@ -214,7 +214,7 @@
 		}
 	}
 	s:STATE_KAUNAS = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = { # Most Lithuanian aristocrats identified as Polish
 				culture = polish
 				pop_type = aristocrats
@@ -247,6 +247,41 @@
 			create_pop = {
 				culture = byelorussian
 				size = 16056
+			}
+		}
+		region_state:POL = {
+			create_pop = { # Most Lithuanian aristocrats identified as Polish
+				culture = polish
+				pop_type = aristocrats
+				size = 200
+			}
+			create_pop = {
+				culture = lithuanian
+				size = 14321
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 28034
+			}
+			create_pop = {
+				culture = latvian
+				size = 1538
+			}
+			create_pop = {
+				culture = polish
+				size = 34300
+			}
+			create_pop = {
+				culture = east_german
+				size = 2636
+			}
+			create_pop = {
+				culture = russian
+				size = 936
+			}
+			create_pop = {
+				culture = byelorussian
+				size = 1605
 			}
 		}
 	}
@@ -506,7 +541,7 @@
 		}
 	}
 	s:STATE_BREST = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = {
 				culture = byelorussian
 				size = 512334
@@ -534,7 +569,7 @@
 		}
 	}
 	s:STATE_MINSK = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = {
 				culture = polish
 				size = 29910
@@ -554,7 +589,7 @@
 		}
 	}
 	s:STATE_MOGILEV = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = {
 				culture = russian
 				size = 23216
@@ -574,7 +609,7 @@
 		}
 	}
 	s:STATE_VITEBSK = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = {
 				culture = russian
 				size = 45399
@@ -598,7 +633,7 @@
 		}
 	}
 	s:STATE_VOLHYNIA = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = {
 				culture = ukrainian
 				size = 526356
@@ -626,7 +661,7 @@
 		}
 	}
 	s:STATE_KIEV = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = {
 				culture = ukrainian
 				pop_type = aristocrats
@@ -734,6 +769,24 @@
 				size = 276118
 			}
 		}
+		region_state:LIT = {
+			create_pop = {
+				culture = ukrainian
+				size = 345004
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 23405
+			}
+			create_pop = {
+				culture = byelorussian
+				size = 12340
+			}
+			create_pop = {
+				culture = russian
+				size = 10034
+			}
+		}
 	}
 	s:STATE_CHERSON = { #DONE
 		region_state:RUS = {
@@ -764,7 +817,7 @@
 		}
 	}
 	s:STATE_CHERNIHIV = { #DONE
-		region_state:RUS = {
+		region_state:LIT = {
 			create_pop = {
 				culture = ukrainian
 				size = 949520

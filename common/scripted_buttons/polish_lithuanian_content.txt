@@ -1,0 +1,62 @@
+﻿je_suvalkija_suwalki_unify = {
+    name = "suvalkija_suwalki_unify"
+    desc = "suvalkija_suwalki_unify_desc"
+
+    visible = { 
+        OR = {
+            c:LIT ?= THIS
+            c:POL ?= THIS 
+        } 
+    }
+    
+    #Country scope
+    ai_chance = {
+        value = 0
+        if = {
+            limit = { bureaucracy > 0 }
+            add = 5
+        }
+    }
+    possible = {
+        has_law = law_type:law_tenant_farmers
+        c:LIT ?= THIS
+        has_technology_researched = nationalism
+    }
+
+    effect = {
+        s:STATE_KAUNAS.region_state:POL = {
+        set_state_owner = c:LIT
+    }
+}
+}
+
+je_suvalkija_suwalki_serfdom = {
+    name = "suvalkija_suwalki_serfdom"
+    desc = "suvalkija_suwalki_serfdom_desc"
+
+    visible = { c:LIT ?= THIS }
+    
+    #Country scope
+    ai_chance = {
+        value = 0
+        if = {
+            limit = { bureaucracy > 0 }
+            add = 5
+        }
+    }
+    possible = {
+        not = {
+            has_variable = lit_enacted_serfdom_reform
+        }
+        c:LIT ?= THIS
+    }
+
+    effect = {
+        set_variable = lit_enacted_serfdom_reform
+        activate_law = law_type:law_tenant_farmers
+        add_radicals = {
+            value = 0.35
+            pop_type = aristocrats
+        }
+    }
+}

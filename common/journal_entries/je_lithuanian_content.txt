@@ -1,0 +1,77 @@
+﻿je_suvalkija_suwalki = {
+    group = je_group_historical_content
+    icon = "gfx/interface/icons/event_icons/event_map.dds"
+    should_be_pinned_by_default_uninvolved_or_context = yes
+
+    is_shown_when_inactive = {
+        is_player = yes
+        NOT = { has_variable = je_suvalkija_suwalki_ended }
+		OR = {
+            c:LIT ?= THIS
+            c:POL ?= THIS
+        }
+    }
+
+    possible = {
+		OR = {
+            c:LIT ?= THIS
+            c:POL ?= THIS
+        }
+        NOT = { has_variable = je_suvalkija_suwalki_ended }
+    }
+
+    scripted_button = je_suvalkija_suwalki_serfdom
+    scripted_button = je_suvalkija_suwalki_unify
+
+    complete = {
+        owns_entire_state_region = STATE_KAUNAS
+    }
+
+    on_complete = {
+        trigger_event = { id = suvalkija_suwalki.1 }
+        add_loyalists = {
+            value = 0.2
+            strata = middle
+        }
+        set_variable = lit_enacted_serfdom_ended
+    }
+}
+
+je_last_hetman = {
+	group = je_group_historical_content
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	timeout = 1825
+    should_be_pinned_by_default_uninvolved_or_context = yes
+	scripted_progress_bar = lit_last_hetman_progress_bar
+
+	complete = {
+        custom_tooltip = {
+                text = lit_last_hetman_requirements
+                scope:journal_entry = {
+                        scripted_bar_progress = {
+                            name = lit_last_hetman_progress_bar
+                            value >= 24
+                        }
+                }
+            }
+            has_law = law_type:law_tenant_farmers
+            ig:ig_landowners = {
+                is_in_government = yes
+                is_strongest_ig_in_government = yes
+                ig_approval > 2
+            }
+			has_revolution = no
+        }
+        
+
+	on_complete = {
+		trigger_event = event_lit_last_hetman.2
+	}
+
+	on_timeout = {
+		trigger_event = event_lit_last_hetman.1
+		ruler = {
+			kill_character = yes
+		}
+	}
+}

@@ -1,0 +1,7 @@
+﻿CHARACTERS = {
+	c:LIT ?= {
+		create_character = { # 
+			template = LIT_mustapha_murza_achmatowicz
+		}
+	}
+}

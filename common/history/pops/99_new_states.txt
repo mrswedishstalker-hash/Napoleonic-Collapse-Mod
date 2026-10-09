@@ -1,0 +1,23 @@
+﻿POPS = {
+	s:STATE_KLAIPEDA = { # • City of Memel: 8,100 Germans, 912 Lithuanians, and 22 Poles (Total: 9,034). Memel Countryside (Rural District): 8,340 Germans, 23,284 Lithuanians, and 5 Poles (Total: 31,629).
+		region_state:LIT = {
+			create_pop = { # left over german aristocracy
+				culture = east_german
+				pop_type = aristocrats
+				size = 450
+			}
+			create_pop = {
+				culture = lithuanian
+				size = 25000
+			}
+			create_pop = {
+				culture = east_german
+				size = 16000
+			}
+			create_pop = {
+				culture = polish
+				size = 500
+			}
+		}
+	}
+}

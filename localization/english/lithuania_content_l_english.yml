@@ -1,0 +1,8 @@
+﻿l_english:
+ je_last_hetman:0 "The Last Great Hetman"
+ je_last_hetman_reason:0 "The Campaign of 1813 let the tatars ride the steppe wind once more. A hundred men of the Imperial guard, all followers of Muhammad fighting for the Christian nation of Lithuania. The Lipka tatars are canonized in Lithuanian myth for their service. First at Žalgiris, in 1410, and then in 1813.\n\nWith the abdication of Anthony, King of Saxony, a veteran officer in charge of the Tatar squadron has taken the bonapartist route, leveraging his title as [concept_grand_hetman] to seize the reigns of the regency while the Seimas bickers."
+ Armija:0 "Lietuvos Pirmoji Armija"
+ concept_grand_hetman:0 "Grand Hetman"
+ concept_grand_hetman_desc:0 "Hetman is a political title comparable to a Field Marshal. Used in Poland and Lithuania with four variations, two for each polity. The Grand Hetman and Field Hetman of Lithuania or Poland.\n\nAs of 1836, the#yellow  Grand Duchy of Lithuania#! is currently ruled by it's Grand Hetman under a military regency."
+ lit_last_hetman_progress_bar_desc:0 "Prepration of the Seimas"
+ lit_last_hetman_requirements:0 "#white #B The following has been true for 24 months#!"

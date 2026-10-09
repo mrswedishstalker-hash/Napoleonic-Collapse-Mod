@@ -1,0 +1,30 @@
+﻿gov_grand_duchy_hetman = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "MALE_TITLE_HETMAN"
+	female_ruler = "RULER_TITLE_HETMANETTE"
+
+	male_heir = "" # Empty on purpose
+	female_heir = "" # Empty on purpose
+
+    priority = 100
+
+	possible = {
+		has_law = law_type:law_monarchy
+		country_tier = grand_principality
+
+		is_in_geographic_region = geographic_region_europe
+		c:LIT ?= this
+		NOT = { has_variable = lit_last_hetman }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
