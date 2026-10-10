@@ -19,12 +19,12 @@ law_guided_technocracy = {
 
 	is_visible = { c:FRA ?= this }  # or has_global_variable = ..., or drop it for all countries
 
-	modifier = {
-		country_bureaucrats_pol_str_mult = 0.5
-		country_capitalists_pol_str_mult = 0.2
-		country_officers_pol_str_mult = 0.2
-		country_authority_add = 50
-	}
+	# modifier = {
+	# 	country_bureaucrats_pol_str_mult = 0.5
+	# 	country_capitalists_pol_str_mult = 0.2
+	# 	country_officers_pol_str_mult = 0.2
+	# 	country_authority_add = 50
+	# }
 
 	# copy the technocracy bookkeeping so the switch behaves like the original
 	on_activate = {

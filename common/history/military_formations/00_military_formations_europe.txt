@@ -1,46 +1,157 @@
 ﻿MILITARY_FORMATIONS = {
 	c:LIT ?= {
+		# Units reassigned from Russia (Russian Guards, 1st, 3rd, 5th Infantry and Grenadier Corps)
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_eastern_europe
 			name = Armija
-			combat_unit = {
+
+			combat_unit = { # L.-Gds. Lithuania Regiment, Lithuania and Vilna Jägers, Samogitia Grenadiers and Barclay de Tolly's Carabiniers
 				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KAUNAS
+				count = 5
+			}
+
+			combat_unit = { # Lithuania and Volhynia Lancer Regiments
+				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_KAUNAS
 				count = 2
 			}
-			combat_unit = {
+
+			combat_unit = { # L.-Gds. Volhynia Regiment, Volhynia Infantry
 				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VILNIUS
-				count = 15
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_BREST
-				count = 1
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_KIEV
-				count = 6
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KIEV
-				count = 5
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_VOLHYNIA
 				count = 3
 			}
-			combat_unit = {
+
+			combat_unit = { # Brest and Bialystok Infantry
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BREST
+				count = 2
+			}
+
+			combat_unit = { # Minsk Infantry
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_MINSK
-				count = 10
+				count = 1
+			}
+
+			combat_unit = { # Grand Duke Michael Pavlovich's and King of Württemberg's Hussar Regiments
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MINSK
+				count = 2
+			}
+
+			combat_unit = { # Field Marshal Wellington's and Mogilev Infantry, Vitebsk and Polotsk Jägers
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MOGILEV
+				count = 4
+			}
+
+			combat_unit = { # Dibich's and Poltava Infantry, Aleksopol and Kremenchug Jägers; Podolia and Zhitomir Jägers; Kiev and Eugene of Württemberg's Grenadiers
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KIEV
+				count = 8
+			}
+
+			combat_unit = { # Sumy and Klyastitsy; Wittgenstein's and Prince of Orange's; Akhtyrka and Aleksandriya Hussar Regiments
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KIEV
+				count = 6
 			}
 		}
 	}
+
+	# Units reassigned from Prussia (Posen), Austria (Galicia) and Russia (Poland)
+	c:POL ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_eastern_europe
+			name = Armia
+
+			# V. Armee-Korps (ex-Prussian)
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_POSEN
+				count = 9
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_POSEN
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_POSEN
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_POSEN
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_POSEN
+				count = 1
+			}
+
+			# Galician units (ex-Austrian)
+			combat_unit = { # IR 9, IR 15, IR 20, IR 24, IR 27, IR 30, IR 47, IR 58
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EAST_GALICIA
+				count = 16
+			}
+
+			combat_unit = { # IR 10, IR 12, IR 40, IR 56, IR 57
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_GALICIA
+				count = 10
+			}
+
+			combat_unit = { # 1. Uhlans, 2. Uhlans
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_WEST_GALICIA
+				count = 2
+			}
+
+			combat_unit = { # 3. Uhlans, 4. Uhlans
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_EAST_GALICIA
+				count = 2
+			}
+
+			combat_unit = { # 1. Dragoons; 3. Chevauxlegers, 6. Chevauxlegers
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EAST_GALICIA
+				count = 3
+			}
+
+			# Polish units (ex-Russian 5th Infantry and Grenadier Corps)
+			combat_unit = { # Modlin and Praga Infantry
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MAZOVIA
+				count = 2
+			}
+
+			combat_unit = { # Lublin and Zamosc Jägers
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LESSER_POLAND
+				count = 2
+			}
+
+			combat_unit = { # The Crown Prince of Prussia's and Graf Arakcheev's Grenadiers
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GREATER_POLAND
+				count = 2
+			}
+		}
+	}
+
 	c:PRU ?= {
 		create_military_formation = {
 			type = army
@@ -190,67 +301,8 @@
 				count = 1
 			}
 
-			# V. Armee-Korps
-			combat_unit = {
-				type = unit_type:combat_unit_type_skirmish_infantry
-				state_region = s:STATE_POSEN
-				count = 9
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cuirassiers
-				state_region = s:STATE_POSEN
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_POSEN
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_POSEN
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_mobile_artillery
-				state_region = s:STATE_POSEN
-				count = 1
-			}
-
-			# VI. Armee-Korps
-			combat_unit = {
-				type = unit_type:combat_unit_type_skirmish_infantry
-				state_region = s:STATE_LOWER_SILESIA
-				count = 9
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cuirassiers
-				state_region = s:STATE_LOWER_SILESIA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_LOWER_SILESIA
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_LOWER_SILESIA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_mobile_artillery
-				state_region = s:STATE_LOWER_SILESIA
-				count = 1
-			}
+			# V. Armee-Korps (moved to Poland: Posen)
+			# VI. Armee-Korps (moved to Austria: Lower Silesia)
 
 			# Garde-Korps
 			combat_unit = {
@@ -303,7 +355,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_western_europe
+			hq_region = sr:region_central_europe # was western_europe; Prussia no longer owns a state there (Rhineland)
 			name = Main_Armee
 
 			# VII. Armee-Korps
@@ -347,19 +399,7 @@
 			hq_region = sr:region_central_europe
 			name = Elbe_Armee
 
-			# VIII. Armee-Korps
-			combat_unit = {
-				type = unit_type:combat_unit_type_skirmish_infantry
-				state_region = s:STATE_RHINELAND
-				count = 9
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_RHINELAND
-				count = 2
-			}
-
+			# VIII. Armee-Korps (Rhineland units moved to France)
 			combat_unit = {
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_RUHR
@@ -416,18 +456,12 @@
 		# Due to their size, each IR and Art-reg consists of two in-game regiments
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_eastern_europe
+			hq_region = sr:region_central_europe # was eastern_europe; Austria no longer owns a state there (Galicia)
 			name = "generalkommando_lemberg"
 
 			save_scope_as = generalkommando_lemberg
 
-			# "German" Line Regiments
-
-			combat_unit = { # IR 9, IR 15, IR 20, IR 24, IR 27, IR 30, IR 47, IR 58
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_EAST_GALICIA
-				count = 16
-			}
+			# "German" Line Regiments (IR 9, 15, 20, 24, 27, 30, 47, 58 in East Galicia moved to Poland)
 
 			# Cavalry Regiments
 
@@ -438,12 +472,7 @@
 				count = 1
 			}
 
-			# Uhlans
-			combat_unit = { # 1. Uhlans, 2. Uhlans
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_WEST_GALICIA
-				count = 2
-			}
+			# Uhlans (1. Uhlans, 2. Uhlans in West Galicia moved to Poland)
 
 			# Artillery
 
@@ -499,18 +528,7 @@
 
 			save_scope_as = armee_in_italien_scope
 
-			# Italian ("German") Line Regiments
-
-			combat_unit = { # IR 13, IR 38, IR 43, IR 44
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_LOMBARDY
-				count = 8
-			}
-			combat_unit = { # IR 15, IR 23, IR 26, IR 45
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VENETIA
-				count = 8
-			}
+			# Italian ("German") Line Regiments (Lombardy and Venetia moved to Italy)
 
 			# "German" Line Regiments
 
@@ -534,11 +552,7 @@
 				state_region = s:STATE_BOHEMIA
 				count = 14
 			}
-			combat_unit = { # IR 10, IR 12, IR 40, IR 56, IR 57
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_WEST_GALICIA
-				count = 10
-			}
+			# IR 10, IR 12, IR 40, IR 56, IR 57 (West Galicia) moved to Poland
 			combat_unit = { # IR 14, IR 59
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_TYROL
@@ -569,19 +583,10 @@
 				count = 1
 			}
 
-			# Uhlans
-			combat_unit = { # 3. Uhlans, 4. Uhlans
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_EAST_GALICIA
-				count = 2
-			}
+			# Uhlans (3. Uhlans, 4. Uhlans in East Galicia moved to Poland)
 
 			# Dragoons
-			combat_unit = { # 1. Dragoons
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_EAST_GALICIA
-				count = 1
-			}
+			# 1. Dragoons (East Galicia) moved to Poland
 			combat_unit = { # 5. Dragoons
 				type = unit_type:combat_unit_type_dragoons
 				state_region = s:STATE_BOHEMIA
@@ -599,16 +604,8 @@
 				state_region = s:STATE_BOHEMIA
 				count = 3
 			}
-			combat_unit = { # 3. Chevauxlegers, 6. Chevauxlegers
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_EAST_GALICIA
-				count = 2
-			}
-			combat_unit = { # 7. Dragoons
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_LOMBARDY
-				count = 1
-			}
+			# 3. Chevauxlegers, 6. Chevauxlegers (East Galicia) moved to Poland
+			# 7. Dragoons (Lombardy) moved to Italy
 
 			# Artillery
 
@@ -619,6 +616,44 @@
 				count = 6
 			}
 		}
+
+		# Units reassigned from Prussia (VI. Armee-Korps, Lower Silesia)
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_LOWER_SILESIA
+				count = 9
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_LOWER_SILESIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_LOWER_SILESIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_LOWER_SILESIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_mobile_artillery
+				state_region = s:STATE_LOWER_SILESIA
+				count = 1
+			}
+		}
+
 		create_character = { # General
 			template = aus_general_von_hess
 			save_scope_as = heinr_gen
@@ -960,6 +995,92 @@
 
 		scope:bertrand_gen = {
 			transfer_to_formation = scope:africacorpfra
+		}
+
+		# Units reassigned from Prussia (Rhineland), Luxembourg and Belgium (Wallonia, Flanders)
+		# and Sardinia-Piedmont (Savoy, Provence)
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = Armee
+
+			combat_unit = { # VIII. Armee-Korps (ex-Prussian)
+				type = unit_type:combat_unit_type_skirmish_infantry
+				state_region = s:STATE_RHINELAND
+				count = 9
+			}
+
+			combat_unit = { # VIII. Armee-Korps (ex-Prussian)
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_RHINELAND
+				count = 2
+			}
+
+			combat_unit = { # 1-3 régiment de chasseurs à pied, 1-6 régiment de ligne (ex-Belgian); Luxemburger Miliz (ex-Luxembourg)
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WALLONIA
+				count = 10
+			}
+
+			combat_unit = { # Luxemburger Miliz (ex-Luxembourg)
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_WALLONIA
+				count = 2
+			}
+
+			combat_unit = { # 1er régiment de cuirassiers (ex-Belgian)
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_WALLONIA
+				count = 1
+			}
+
+			combat_unit = { # 1 Régiment de Guides (ex-Belgian)
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_WALLONIA
+				count = 1
+			}
+
+			combat_unit = { # 1-2 Régiment de Lanciers (ex-Belgian)
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_WALLONIA
+				count = 2
+			}
+
+			combat_unit = { # 7-12 régiment de ligne (ex-Belgian)
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FLANDERS
+				count = 6
+			}
+
+			combat_unit = { # 1-2 Régiment de Chasseurs à cheval (ex-Belgian)
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_FLANDERS
+				count = 2
+			}
+
+			combat_unit = { # 1-3 Régiment d'Artillerie (ex-Belgian)
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_FLANDERS
+				count = 3
+			}
+
+			combat_unit = { # ex-Sardinian
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAVOY
+				count = 1
+			}
+
+			combat_unit = { # ex-Sardinian
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_SAVOY
+				count = 1
+			}
+
+			combat_unit = { # ex-Sardinian
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_PROVENCE
+				count = 1
+			}
 		}
 
 		create_military_formation = {
@@ -1484,17 +1605,7 @@
 				count = 14
 			}
 
-			combat_unit = { # L.-Gds. Lithuania Regiment
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KAUNAS
-				count = 1
-			}
-
-			combat_unit = { # His Majesty the King of Prussia’s Grenadier Regiment, L.-Gds. Volhynia Regiment
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VOLHYNIA
-				count = 2
-			}
+			# L.-Gds. Lithuania Regiment (Kaunas) and His Majesty the King of Prussia’s Grenadier Regiment, L.-Gds. Volhynia Regiment (Volhynia) moved to Lithuania
 
 			combat_unit = { # Field Marshal Graf von der Osten-Saken’s and Kazan Jägers
 				type = unit_type:combat_unit_type_line_infantry
@@ -1575,11 +1686,7 @@
 			}
 
 			# 1st Light Cavalry Division
-			combat_unit = { # Sumy and Klyastitsy Hussar Regiments.
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_KIEV
-				count = 2
-			}
+			# Sumy and Klyastitsy Hussar Regiments (Kiev) moved to Lithuania
 			combat_unit = { # St. Petersburg Lancer Regiment
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_INGRIA
@@ -1771,17 +1878,7 @@
 			hq_region = sr:region_eastern_europe
 			name = 3y_Pekhotniy_Korpus
 
-			combat_unit = { # Field Marshal the Duke of Wellington’s and Mogilev Infantry, Vitebsk and Polotsk Jägers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_MOGILEV
-				count = 4
-			}
-
-			combat_unit = { # Field Marshal Graf Dibich of the Transbalkans’ and Poltava Infantry, Aleksopol and Kremenchug Jägers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KIEV
-				count = 4
-			}
+			# Mogilev and Kiev infantry (Wellington's, Mogilev, Vitebsk, Polotsk, Dibich's, Poltava, Aleksopol, Kremenchug) moved to Lithuania
 
 			combat_unit = { # Yelets and Sevsk Infantry, Orel Jägers
 				type = unit_type:combat_unit_type_line_infantry
@@ -1796,16 +1893,7 @@
 			}
 
 			# 3rd Light Cavalry Division
-			combat_unit = { # Field Marshal Graf Wittgenstein’s and the Prince of Orange’s Hussar Regiments.
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_KIEV
-				count = 2
-			}
-			combat_unit = { # Lithuania and Volhynia Lancer Regiments.
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_KAUNAS
-				count = 2
-			}
+			# Wittgenstein's and Prince of Orange's Hussars (Kiev), Lithuania and Volhynia Lancers (Kaunas) moved to Lithuania
 
 			# 3rd Artillery Division
 			combat_unit = { # 7th, 8th, and 9th Field Artillery Brigades
@@ -1955,54 +2043,11 @@
 			hq_region = sr:region_eastern_europe
 			name = 5y_Pekhotniy_Korpus
 
-			combat_unit = { # Brest and Bialystok Infantry
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_BREST
-				count = 2
-			}
-
-			combat_unit = { # Lithuania and Vilna Jägers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KAUNAS
-				count = 2
-			}
-
-			combat_unit = { # Volhynia Infantry
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VOLHYNIA
-				count = 1
-			}
-
-			combat_unit = { # Minsk Infantry
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_MINSK
-				count = 1
-			}
-
-			combat_unit = { # Podolia and Zhitomir Jägers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KIEV
-				count = 2
-			}
-
-			combat_unit = { # Modlin and Praga Infantry
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_MAZOVIA
-				count = 2
-			}
-
-			combat_unit = { # Lublin and Zamosc Jägers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_LESSER_POLAND
-				count = 2
-			}
+			# Brest, Kaunas, Volhynia, Minsk and Kiev infantry moved to Lithuania
+			# Modlin, Praga, Lublin and Zamosc infantry (Mazovia, Lesser Poland) moved to Poland
+			# Akhtyrka and Aleksandriya Hussars (Kiev) moved to Lithuania
 
 			# 5th Light Cavalry Division
-			combat_unit = { # Akhtyrka and Aleksandriya Hussar Regiments
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_KIEV
-				count = 2
-			}
 			combat_unit = { # Bug and Odessa Lancer Regiments
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_CHERSON
@@ -2044,23 +2089,8 @@
 			hq_region = sr:region_russia
 			name = Otdelniy_Grenaderskiy_Korpus
 
-			combat_unit = { # The Crown Prince of Prussia’s and Graf Arakcheev’s Grenadiers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_GREATER_POLAND
-				count = 2
-			}
-
-			combat_unit = { # Samogitia Grenadiers and Field Marshal Prince Barclay de Tolly’s Carabiniers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KAUNAS
-				count = 2
-			}
-
-			combat_unit = { # Kiev and His Royal Highness Prince Eugene of Württemberg’s Grenadiers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_KIEV
-				count = 2
-			}
+			# Crown Prince of Prussia's and Arakcheev's Grenadiers (Greater Poland) moved to Poland
+			# Samogitia Grenadiers, Barclay de Tolly's Carabiniers (Kaunas), Kiev and Eugene of Württemberg's Grenadiers (Kiev) moved to Lithuania
 
 			combat_unit = { # Yekaterinoslav Grenadiers and Prince Paul of Mecklenburg’s Carabiniers
 				type = unit_type:combat_unit_type_line_infantry
@@ -2081,11 +2111,7 @@
 			}
 
 			# 7th Light Cavalry Division
-			combat_unit = { #  His Imperial Highness the Grand Duke Michael Pavlovich’s and His Majesty the King of Württemberg’s Hussar Regiments
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_MINSK
-				count = 2
-			}
+			# Grand Duke Michael Pavlovich’s and King of Württemberg’s Hussar Regiments (Minsk) moved to Lithuania
 			combat_unit = { # His Imperial Highness the Grand Duke Michael Pavlovich’s and Yamburg Lancer Regiments
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_MOSCOW
@@ -2750,25 +2776,7 @@
 		}
 	}
 
-	c:LUX ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_western_europe
-			name = Luxemburger_Miliz
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_WALLONIA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_WALLONIA
-				count = 2
-			}
-		}
-	}
+	# c:LUX: Luxemburger_Miliz (Wallonia) moved to France
 
 	c:SWE ?= {
 		create_military_formation = {
@@ -3335,91 +3343,143 @@
 		}
 	}
 
-	c:SAR ?= {
+	# Units reassigned from Austria (Lombardy, Venetia), Sardinia-Piedmont, the Papal States,
+	# Tuscany, Lucca, Modena and Parma
+	c:ITA ?= {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_southern_europe
-			name = I_Corpo_dArmata
+			name = Esercito
 
+			# Lombardy and Venetia (ex-Austrian Armee in Italien)
+			combat_unit = { # IR 13, IR 38, IR 43, IR 44
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOMBARDY
+				count = 8
+			}
+			combat_unit = { # 7. Dragoons
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_LOMBARDY
+				count = 1
+			}
+			combat_unit = { # IR 15, IR 23, IR 26, IR 45
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VENETIA
+				count = 8
+			}
+
+			# Piedmont and Sardinia (ex-Sardinian I and II Corpo d'Armata)
 			combat_unit = {
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_PIEDMONT
-				count = 5
+				count = 9
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SAVOY
-				count = 1
-			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_dragoons
 				state_region = s:STATE_PIEDMONT
 				count = 2
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_PROVENCE
-				count = 1
-			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_PIEDMONT
 				count = 1
 			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_mobile_artillery
-				state_region = s:STATE_PIEDMONT
-				count = 1
-			}
-		}
-
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_southern_europe
-			name = II_Corpo_dArmata
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_PIEDMONT
-				count = 4
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SARDINIA
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_SAVOY
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_SARDINIA
-				count = 1
-			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_lancers
 				state_region = s:STATE_PIEDMONT
 				count = 1
 			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_mobile_artillery
 				state_region = s:STATE_PIEDMONT
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SARDINIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_SARDINIA
 				count = 1
 			}
-		}
 
+			# Lazio, Umbria and Romagna (ex-Papal)
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LAZIO
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_LAZIO
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_LAZIO
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_UMBRIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ROMAGNA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_ROMAGNA
+				count = 1
+			}
+
+			# Tuscany (ex-Tuscan)
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TUSCANY
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_TUSCANY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_TUSCANY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TUSCANY
+				count = 1
+			}
+
+			# Emilia (ex-Lucca, Modena and Parma)
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EMILIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EMILIA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EMILIA
+				count = 2
+			}
+		}
+	}
+
+	# Army formations moved to Italy; fleets (no state) stay with the original countries
+	c:SAR ?= {
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_southern_europe
@@ -3434,48 +3494,6 @@
 
 	c:PAP ?= {
 		create_military_formation = {
-			type = army
-			hq_region = sr:region_southern_europe
-			name = Esercito_dello_Stato_della_Chiesa
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_LAZIO
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_UMBRIA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_ROMAGNA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_LAZIO
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_ROMAGNA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_LAZIO
-				count = 1
-			}
-		}
-
-		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_southern_europe
 			name = Marina_Pontificia
@@ -3489,36 +3507,6 @@
 
 	c:TUS ?= {
 		create_military_formation = {
-			type = army
-			hq_region = sr:region_southern_europe
-			name = Esercito_del_Granducato_di_Toscana
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_TUSCANY
-				count = 5
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_TUSCANY
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_TUSCANY
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_TUSCANY
-				count = 1
-			}
-		}
-
-		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_southern_europe
 			name = Marina_del_Granducato_di_Toscana
@@ -3530,59 +3518,7 @@
 		}
 	}
 
-	c:LUC ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_southern_europe
-			name = Esercito_Ducale
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_EMILIA
-				count = 1
-			}
-		}
-	}
-
-	c:MOD ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_southern_europe
-			name = Esercito_del_Ducato_di_Modena_e_Reggio
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_EMILIA
-				count = 3
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_EMILIA
-				count = 1
-			}
-		}
-	}
-
-	c:PAR ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_southern_europe
-			name = Truppe_Reali_Parmensi
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_EMILIA
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_EMILIA
-				count = 1
-			}
-		}
-	}
+	# c:LUC, c:MOD, c:PAR: armies (Emilia) moved to Italy
 
 	c:NET ?= {
 		create_military_formation = {
@@ -3680,53 +3616,7 @@
 			}
 		}
 
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_western_europe
-			name = Armee_Belge
-
-			combat_unit = { # 1-3 régiment de chasseurs à pied, 1-6 régiment de ligne
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_WALLONIA
-				count = 9
-			}
-
-			combat_unit = { # 7-12 régiment de ligne
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_FLANDERS
-				count = 6
-			}
-
-			combat_unit = { # 1-2 Régiment de Chasseurs à cheval
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_FLANDERS
-				count = 2
-			}
-
-			combat_unit = { # 1er régiment de cuirassiers
-				type = unit_type:combat_unit_type_cuirassiers
-				state_region = s:STATE_WALLONIA
-				count = 1
-			}
-
-			combat_unit = { # 1 Régiment de Guides
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_WALLONIA
-				count = 1
-			}
-
-			combat_unit = { # 1-2 Régiment de Lanciers
-				type = unit_type:combat_unit_type_lancers
-				state_region = s:STATE_WALLONIA
-				count = 2
-			}
-
-			combat_unit = { # 1-3 Régiment d'Artillerie
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_FLANDERS
-				count = 3
-			}
-		}
+		# Armee_Belge (Wallonia, Flanders) moved to France
 
 		activate_production_method = {
 			building_type = building_barrack

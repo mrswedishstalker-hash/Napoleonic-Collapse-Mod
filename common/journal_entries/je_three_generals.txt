@@ -105,7 +105,7 @@ je_three_generals = {
 	on_timeout = {
 		hidden_effect={
 		set_variable = three_generals_resolved
-		hidden_effect = three_generals_release_immortality = yes
+		hidden_effect = { three_generals_release_immortality = yes }
 		remove_variable ?= generals_defeated_gbr 
 		}
 		# TODO: nobody won. Optional consolation reward for the highest bar.

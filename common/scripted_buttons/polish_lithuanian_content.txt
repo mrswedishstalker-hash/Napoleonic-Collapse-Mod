@@ -49,6 +49,16 @@ je_suvalkija_suwalki_serfdom = {
             has_variable = lit_enacted_serfdom_reform
         }
         c:LIT ?= THIS
+        exists = c:POL
+        exists = c:LIT
+        c:POL = {
+            exists = power_bloc
+            power_bloc = {
+                any_power_bloc_member = {
+                    this = c:LIT
+                }
+            }
+        }
     }
 
     effect = {

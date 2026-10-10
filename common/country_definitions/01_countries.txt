@@ -71,11 +71,10 @@ WES = {
 
 	country_type = recognized
 
-	tier = principality
+	tier = kingdom
 
 	cultures = { north_german }
 	capital = STATE_WESTPHALIA
-	is_named_from_capital = yes
 }
 
 POM = {

@@ -449,7 +449,7 @@
 		}
 	}
 	s:STATE_WEST_PRUSSIA={
-		region_state:POL={
+		region_state:PRU={
 			create_building={
 				building="building_trade_center"
 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }

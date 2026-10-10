@@ -1,0 +1,100 @@
+﻿pol_duchy_color = {
+	color = "pol_duchy_named_color"
+
+	possible = {
+		c:POL ?= THIS
+		c:POL ?= {
+			has_modifier = pol_unfortunate_duchy
+		}
+	}
+}
+
+rhine_member_color_BAV = {
+	color = "confederation_green"
+	possible = {
+		c:BAV ?= THIS
+		c:BAV ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_WUR = {
+	color = "confederation_green"
+	possible = {
+		c:WUR ?= THIS
+		c:WUR ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_SAX = {
+	color = "confederation_green"
+	possible = {
+		c:SAX ?= THIS
+		c:SAX ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_HEK = {
+	color = "confederation_green"
+	possible = {
+		c:HEK ?= THIS
+		c:HEK ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_BRA = {
+	color = "confederation_green"
+	possible = {
+		c:BRA ?= THIS
+		c:BRA ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_HES = {
+	color = "confederation_green"
+	possible = {
+		c:HES ?= THIS
+		c:HES ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_BAD = {
+	color = "confederation_green"
+	possible = {
+		c:HES ?= THIS
+		c:HES ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_WES = {
+	color = "confederation_green"
+	possible = {
+		c:WES ?= THIS
+		c:WES ?= {
+			has_modifier = rhine_member
+		}
+	}
+}
+
+rhine_member_color_NAS = {
+	color = "confederation_green"
+	possible = {
+		c:NAS ?= THIS
+		c:NAS ?= {
+			has_modifier = rhine_member
+		}
+	}
+}

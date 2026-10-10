@@ -1,59 +1,59 @@
-check_three_generals_progress_effect = {
-    # PATH 1 CHECK
-    if = {
-        limit = {
-            NOT = { any_country = { army_size > root.army_size } }
-            NOT = { any_country = { navy_size > root.navy_size } }
-            OR = {
-                has_country_flag = defeated_great_britain_flag
-                AND = {
-                    country_rank = rank_value:great_power
-                    rank_value:great_power = { is_rank_1 = yes }
-                }
-            }
-        }
-        set_country_flag = flag_jean_path_ready
-    }
+# check_three_generals_progress_effect = {
+#     # PATH 1 CHECK
+#     if = {
+#         limit = {
+#             NOT = { any_country = { army_size > root.army_size } }
+#             NOT = { any_country = { navy_size > root.navy_size } }
+#             OR = {
+#                 has_country_flag = defeated_great_britain_flag
+#                 AND = {
+#                     country_rank = rank_value:great_power
+#                     rank_value:great_power = { is_rank_1 = yes }
+#                 }
+#             }
+#         }
+#         set_country_flag = flag_jean_path_ready
+#     }
     
-    # PATH 2 CHECK
-    if = {
-        limit = {
-            has_power_bloc = yes
-            power_bloc = { is_power_bloc_type = pb_type_sovereign_empire }
-            has_rivalry = c:GBR
-            has_rivalry = c:AUT
-            has_rivalry = c:TUR
-            OR = {
-                has_law = law_type:law_mercantilism
-                NOT = {
-                    any_country = {
-                        market_goods_produced_value = {
-                            goods = g:grain
-                            value > root.market_goods_produced_value = { goods = g:grain }
-                        }
-                    }
-                }
-            }
-        }
-        set_country_flag = flag_bertrand_path_ready
-    }
+#     # PATH 2 CHECK
+#     if = {
+#         limit = {
+#             has_power_bloc = yes
+#             power_bloc = { is_power_bloc_type = pb_type_sovereign_empire }
+#             has_rivalry = c:GBR
+#             has_rivalry = c:AUT
+#             has_rivalry = c:TUR
+#             OR = {
+#                 has_law = law_type:law_mercantilism
+#                 NOT = {
+#                     any_country = {
+#                         market_goods_produced_value = {
+#                             goods = g:grain
+#                             value > root.market_goods_produced_value = { goods = g:grain }
+#                         }
+#                     }
+#                 }
+#             }
+#         }
+#         set_country_flag = flag_bertrand_path_ready
+#     }
 
-    # PATH 3 CHECK
-    if = {
-        limit = {
-            NOT = { count_countries = { limit = { gdp > root.gdp } count >= 3 } }
-            any_country = {
-                NOT = { this = root }
-                root = { has_investment_rights_in = prev }
-            }
-            OR = {
-                any_country = {
-                    NOT = { this = root }
-                    root = { has_trade_privileges_in = prev }
-                }
-                value:urban_and_resource_gdp_share >= 40
-            }
-        }
-        set_country_flag = flag_reille_path_ready
-    }
-}
+#     # PATH 3 CHECK
+#     if = {
+#         limit = {
+#             NOT = { count_countries = { limit = { gdp > root.gdp } count >= 3 } }
+#             any_country = {
+#                 NOT = { this = root }
+#                 root = { has_investment_rights_in = prev }
+#             }
+#             OR = {
+#                 any_country = {
+#                     NOT = { this = root }
+#                     root = { has_trade_privileges_in = prev }
+#                 }
+#                 value:urban_and_resource_gdp_share >= 40
+#             }
+#         }
+#         set_country_flag = flag_reille_path_ready
+#     }
+# }

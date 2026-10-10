@@ -11,11 +11,11 @@ law_napoleonic_stratocracy = {
 
 	is_visible = { c:FRA ?= this }  # or has_global_variable = ..., or drop it for all countries
 
-	modifier = {
-		country_servicemen_pol_str_mult = 0.15
-		country_officers_pol_str_mult = 0.75
-        country_authority_add = 200
-	}
+	# modifier = {
+	# 	country_servicemen_pol_str_mult = 0.15
+	# 	country_officers_pol_str_mult = 0.75
+    #     country_authority_add = 200
+	# }
 
 	# copy the technocracy bookkeeping so the switch behaves like the original
 	

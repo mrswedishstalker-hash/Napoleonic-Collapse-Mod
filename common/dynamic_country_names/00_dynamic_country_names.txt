@@ -9,8 +9,7 @@ LIT = {
 	dynamic_country_name = {
 		name = lit_hetman
 		adjective = lit_hetman_adj
-
-		priority = 100
+		
 		trigger = {
 			NOT = { has_variable = lit_last_hetman }
 		}
@@ -26,6 +25,19 @@ LIT = {
 				has_government_type = gov_grand_duchy
 				has_government_type = gov_absolute_grand_duchy
 			}			
+		}
+	}
+}
+
+POL = {
+	dynamic_country_name = {
+		name = pol_duchy
+		adjective = pol_duchy_ADJ
+		priority = 100
+		trigger = {
+			c:POL ?= {
+				has_modifier = pol_unfortunate_duchy
+			}
 		}
 	}
 }
@@ -1473,27 +1485,6 @@ FIN = { # Finland
 			c:RUS ?= {
 				has_diplomatic_pact = {
 					who = c:FIN
-					type = personal_union
-					is_initiator = yes
-				}
-			}
-		}
-	}
-}
-
-POL = { # Poland
-	dynamic_country_name = {
-		name = dyn_c_congress_poland
-		adjective = dyn_c_congress_poland_adj
-
-		is_main_tag_only = yes
-		priority = 0
-
-		trigger = {
-			exists = c:RUS
-			c:RUS ?= {
-				has_diplomatic_pact = {
-					who = c:POL
 					type = personal_union
 					is_initiator = yes
 				}

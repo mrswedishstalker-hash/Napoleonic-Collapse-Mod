@@ -223,6 +223,50 @@
 				size = 68400
 			}
 		}
+region_state:SAX = {
+			create_pop = {
+				culture = north_german
+				religion = catholic
+				size = 2519
+			}
+			create_pop = {
+				culture = north_german
+				size = 14275
+			}
+			create_pop = {
+				culture = ashkenazi
+				size = 454
+			}
+			create_pop = {
+				culture = polish
+				size = 1023
+			}
+			create_pop = {
+				culture = polish
+				religion = protestant
+				size = 53
+			}
+			create_pop = {
+				culture = czech
+				religion = catholic
+				size = 78
+			}
+			create_pop = {
+				culture = czech
+				religion = protestant
+				size = 26
+			}
+			create_pop = {
+				culture = sorb
+				religion = catholic
+				size = 76
+			}
+			create_pop = {
+				culture = sorb
+				religion = protestant
+				size = 684
+			}
+		}
 	}
 	s:STATE_UPPER_SILESIA = {
 		region_state:AUS = {
@@ -261,7 +305,7 @@
 		}
 	}
 	s:STATE_WEST_PRUSSIA = {
-		region_state:POL = {
+		region_state:PRU = {
 			create_pop = {
 				culture = north_german
 				pop_type = aristocrats

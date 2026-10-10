@@ -1,0 +1,5 @@
+colors = {
+	pol_duchy_named_color = hsv360 { 348 66 61 }
+	confederation_green = hsv360 { 136 43 45 }
+	confederation_president_green = hsv360 { 137 43 37}
+}

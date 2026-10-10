@@ -21,13 +21,13 @@ posture_jean_path_met = {
 	}
 }
 domestic_jean_army = {
-	has_law = law_professional_army
+	has_law = law_type:law_professional_army
 }
 domestic_jean_navy = {
-	has_law = law_professional_navy
+	has_law = law_type:law_professional_navy
 }
 domestic_jean_secret_police = {
-	has_law = law_secret_police 
+	has_law = law_type:law_secret_police 
 }
 domestic_jean_clout_20 = {
 	ig:ig_armed_forces ?= { ig_clout >= 0.2 }
@@ -80,10 +80,10 @@ posture_bertrand_bloc = {
 }
 posture_bertrand_rivals = {
 	exists = c:GBR
-	exists = c:AUT
+	exists = c:AUS
 	exists = c:TUR
 	has_diplomatic_pact = { who = c:GBR type = rivalry is_initiator = yes }
-	has_diplomatic_pact = { who = c:AUT type = rivalry is_initiator = yes }
+	has_diplomatic_pact = { who = c:AUS type = rivalry is_initiator = yes }
 	has_diplomatic_pact = { who = c:TUR type = rivalry is_initiator = yes }
 }
 posture_bertrand_mercantilism = {
@@ -104,16 +104,16 @@ posture_bertrand_path_met = {
 	}
 }
 domestic_bertrand_local_police = {
-	has_law = law_local_police
+	has_law = law_type:law_local_police
 }
 domestic_bertrand_state_religion = {
-	has_law = law_state_religion
+	has_law = law_type:law_state_religion
 }
 domestic_bertrand_guild_system = {
-	has_law = law_guild_system
+	has_law = law_type:law_guild_system
 }
 domestic_bertrand_legal_guardianship = {
-	has_law = law_no_womens_rights
+	has_law = law_type:law_no_womens_rights
 }
 domestic_bertrand_path_met = {
 	domestic_bertrand_local_police = yes 
@@ -124,19 +124,19 @@ domestic_bertrand_path_met = {
 	}
 }
 economy_bertrand_agrarianism = {
-	has_law = law_agrarianism 
+	has_law = law_type:law_agrarianism 
 }
 economy_bertrand_rural_folk = {
-	ig:ig_rural_folk = ig_clout <5
+	ig:ig_rural_folk ?= { ig_clout < 5 }
 }
 economy_bertrand_agriculture = {
 	var:agri_share >= 0.3
 }
 economy_bertrand_serf = {
-	has_law = law_serfdom 
+	has_law = law_type:law_serfdom 
 }
 economy_bertrand_landowners_clout = {
-	ig:ig_landowners = ig_clout >39
+	ig:ig_landowners ?= { ig_clout > 39 }
 }
 economy_bertrand_path_met = {
 	economy_bertrand_agrarianism = yes 
@@ -152,14 +152,15 @@ posture_reille_gdp = {
 	gdp_ranking <= 3
 }
 posture_reille_wide_investment = {
-	any_country = {
-		count >= 2
-		NOT = { this = root }
-		save_temporary_scope_as = posture_investment_target
-		root = {
-			has_treaty_foreign_investment_rights_with = { TARGET = scope:posture_investment_target }
-		}
-	}
+    any_country = {
+        count >= 2
+        NOT = { this = root }
+        root = {
+            has_treaty_foreign_investment_rights_with = {
+                TARGET = prev
+            }
+        }
+    }
 }
 posture_reille_trade_privileges = {
 	any_country = {
@@ -190,21 +191,21 @@ posture_reille_path_met = {
 	}
 }
 domestic_reille_secular = {
-	has_law = law_total_separation
+	has_law = law_type:law_total_separation
 }
 domestic_reille_unions = {
 	OR = {
-		has_law = law_anti_strike_laws
-		has_law = law_right_to_associate
+		has_law = law_type:law_anti_strike_laws
+		has_law = law_type:law_right_to_associate
 	}
 }
 domestic_reille_healthcare = {
-	has_law = public_health_insurance
+	has_law = law_type:public_health_insurance
 }
 domestic_reille_woke = {
 	OR = {
-		has_law = law_cultural_exclusion
-		has_law = law_multiculturalo
+		has_law = law_type:law_cultural_exclusion
+		has_law = law_type:law_multiculturalo
 	}
 }
 domestic_reille_path_met = {
@@ -216,25 +217,25 @@ domestic_reille_path_met = {
 	}
 }
 economy_reille_libecon = {
-	has_law = law_laissez_faire
+	has_law = law_type:law_laissez_faire
 }
-economy_reille_university = {
-	any_scope_state = {
-		has_building = building_university 
-		percent = >9 
-	}
-}
+# economy_reille_university = {
+# 	any_scope_state = {
+# 		has_building = building_university 
+# 		percent = >9 
+# 	}
+# }
 economy_reille_freetrade = {
-	has_law = law_free_trade
+	has_law = law_type:law_free_trade
 }
 economy_reille_pb = {
 	power_bloc ?= { has_identity = identity:identity_trade_league }
 }
-economy_reille_gdp = {
-	NOT = {
-		c:GBR = gdp_ranking > c:FRA = gdp_ranking
-	}
-}
+# economy_reille_gdp = {
+# 	NOT = {
+# 		c:GBR = gdp_ranking > c:FRA = gdp_ranking
+# 	}
+# }
 economy_reille_path_met = {
 	economy_reille_libecon = yes 
 	economy_reille_university = yes 

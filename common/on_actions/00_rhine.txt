@@ -1,0 +1,42 @@
+on_game_started = {
+    on_actions = {
+        rhine_setup_on_action
+    }
+}
+
+rhine_setup_on_action = {
+    effect = {
+        every_power_bloc = {
+            limit = {
+                has_identity = identity:identity_confederation_of_the_rhine
+            }
+
+            every_power_bloc_member = {
+                add_modifier = {
+                    name = rhine_member
+                    days = -1
+                }
+            }
+        }
+
+        c:SAX = {
+            add_modifier = {
+                name = rhine_president
+                days = -1
+            }
+        }
+    }
+}
+
+on_game_started_after_lobby = {
+    effect = {
+        c:POL = {
+            power_bloc = {
+                add_leverage = {
+                    target = c:LIT
+                    value = 500
+                }
+            }
+        }
+    }
+}

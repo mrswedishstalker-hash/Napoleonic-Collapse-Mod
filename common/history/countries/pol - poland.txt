@@ -55,6 +55,10 @@
 			level = 1
 		}
 
+		add_modifier = {
+			name = pol_unfortunate_duchy
+		}
+
 		ig:ig_petty_bourgeoisie ?= { # Victor de Broglie was Prime Minister until February 22, 1836
 			add_ruling_interest_group = yes
 		}
